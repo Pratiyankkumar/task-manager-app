@@ -4,7 +4,7 @@ document.querySelector('.login-button').addEventListener('click', async () => {
   let email = document.querySelector('.js-email-input').value;
   let password = document.querySelector('.js-password').value;
   
-  const request = await fetch('http://localhost:3000/users/login', {
+  const request = await fetch('https://task-manager-app-z7cx.onrender.com/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

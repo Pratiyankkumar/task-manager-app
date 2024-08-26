@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 document.querySelector('.js-logout-button').addEventListener('click', async () => {
   
-  const request = await fetch('http://localhost:3000/users/logout', {
+  const request = await fetch('https://task-manager-app-z7cx.onrender.com/users/logout', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ document.querySelector('.js-save-button').addEventListener('click', async () => 
   
   let description = document.querySelector('.js-task-input').value;
   
-  const request = await fetch('http://localhost:3000/tasks', {
+  const request = await fetch('https://task-manager-app-z7cx.onrender.com/tasks', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ document.querySelector('.js-save-button').addEventListener('click', async () => 
 
 document.querySelector('.js-get-task').addEventListener('click', async () => {
 
-  const request = await fetch('http://localhost:3000/tasks', {
+  const request = await fetch('https://task-manager-app-z7cx.onrender.com/tasks', {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`
@@ -136,7 +136,7 @@ document.querySelector('.js-read-task').addEventListener('click', () => {
 document.querySelector('.js-read-button').addEventListener('click', async () => {
   let id = document.querySelector('.js-id-input').value
   
-  const request = await fetch(`http://localhost:3000/tasks/${id}`, {
+  const request = await fetch(`https://task-manager-app-z7cx.onrender.com/tasks/${id}`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`
@@ -195,7 +195,7 @@ document.querySelector('.js-update-button').addEventListener('click', async () =
     console.log('unchecked')
   }
 
-  const taskRequest = await fetch(`http://localhost:3000/tasks/${id}`, {
+  const taskRequest = await fetch(`https://task-manager-app-z7cx.onrender.com/tasks/${id}`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`
@@ -205,7 +205,7 @@ document.querySelector('.js-update-button').addEventListener('click', async () =
   const task = await taskRequest.json()
   console.log(task)
 
-  const request = await fetch(`http://localhost:3000/tasks/${id}`, {
+  const request = await fetch(`https://task-manager-app-z7cx.onrender.com/tasks/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ document.querySelector('.js-delete-task').addEventListener('click', () => {
 document.querySelector('.js-delete-button').addEventListener('click', async () => {
   const id = document.querySelector('.js-id-input2').value
   
-  const request = await fetch(`http://localhost:3000/tasks/${id}`, {
+  const request = await fetch(`https://task-manager-app-z7cx.onrender.com/tasks/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
