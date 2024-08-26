@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Moderustic:wght@300..800&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      font-family: Manrope;
+    }
+  </style>
+</head>
+
+<body class="flex md:flex-row flex-col-reverse md:overflow-auto">
+  <div class="md:w-1/5 md:h-full-screen w-full fixed md:top-0 md:left-0 md:bottom-0 bottom-3 left-0 right-0 h-10% border-t-2 flex md:flex-col flex-row border-r-2 md:items-start items-center md:justify-normal justify-between border-gray-300">
+    <div class="flex md:flex-row flex-col items-center mt-3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-6 ml-3" viewBox="0 0 24 24" fill="currentColor"
+        class="size-6">
+        <path fill-rule="evenodd"
+          d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+          clip-rule="evenodd" />
+      </svg>
+      <p class="ml-2 font-bold hidden md:inline-block">User Name</p>
+    </div>
+
+    <div
+      class="flex md:flex-row flex-col md:w-full md:py-2 items-center md:mt-8 mt-4 md:hover:bg-gray-300 duration-200 ease-in-out cursor-pointer js-create-task">
+      <img src="images/172525_plus_icon.png" class="size-6 ml-3" alt="">
+      <p class="ml-2 font-bold hidden md:inline-block">Create Task</p>
+    </div>
+
+    <div class="flex md:flex-row flex-col items-center md:w-full md:py-2 mt-4 md:hover:bg-gray-300 duration-200 ease-in-out cursor-pointer js-get-task">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-6 ml-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M9 3.75H6.912a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H15M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859M12 3v8.25m0 0-3-3m3 3 3-3" />
+      </svg>
+
+      <p class="ml-2 font-bold hidden md:inline-block">Get tasks</p>
+    </div>
+
+    <div class="flex js-read-task md:flex-row md:w-full md:py-2 flex-col items-center mt-4 md:hover:bg-gray-300 duration-200 ease-in-out cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-6 ml-3" fill="none" viewBox="0 0 24 24" stroke-width="1"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+      </svg>
+      <p class="ml-2 font-bold hidden md:inline-block">Read task</p>
+    </div>
+
+
+    <div class="flex md:flex-row flex-col md:w-full md:py-2 items-center mt-4 js-update-task md:hover:bg-gray-300 duration-200 ease-in-out cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-6 ml-3" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+        stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+      </svg>
+      <p class="ml-2 font-bold hidden md:inline-block">Update task</p>
+    </div>
+
+    <div class="flex md:flex-row flex-col md:w-full md:py-2 items-center mt-4 md:hover:bg-gray-300 duration-200 ease-in-out cursor-pointer js-delete-task">
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-6 ml-3 md:mr-0 mr-3" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+      </svg>
+      <p class="ml-2 font-bold hidden md:inline-block">Delete task</p>
+    </div>
+
+    <div class="flex md:flex-row flex-col md:w-full md:py-2 js-logout-button items-center mt-4 md:hover:bg-gray-300 duration-200 ease-in-out cursor-pointer">
+      <svg class="size-6 ml-3 md:mr-0 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+      </svg>
+      <button class=" ml-2 font-bold hidden md:inline-block">Log Out</button>
+    </div>
+
+  </div>
+
+  <div class="md:w-4/5 h-90% w-full md:h-full flex items-center flex-col">
+    <div class="md:w-4/5 h-90% w-full md:h-full flex items-center flex-col js-create-task-content hidden">
+      <h1 class="text-2xl mt-4 font-bold">Create Task</h1>
+      <textarea class="md:w-2/4 js-task-input w-4/5 border-2 pl-3 border-gray-700 bg-gray-300 rounded-md mt-10 h-40" name="" id=""></textarea>
+      <div class="flex flex-row items-center mt-4">
+        <input class="size-4" type="checkbox" id="myCheck" />
+        <p class="ml-2">Completed</p>
+      </div>
+      <button type="button"
+        class="text-white js-save-button mt-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Save
+        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+          viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 5h12m0 0L9 1m4 4L9 9" />
+        </svg>
+      </button>
+      
+      <div id="toast-success"
+        class="flex items-center hidden mt-5 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+          class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+          </svg>
+          <span class="sr-only">Check icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">Task saved successfully.</div>
+      </div>
+
+      <div id="toast-danger"
+        class="flex hidden items-center mt-4 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+          class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+          </svg>
+          <span class="sr-only">Error icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">An error occured.</div>
+      </div>
+    </div>
+
+
+    
+    <div class="md:w-4/5 w-full h-90% md:ml-100 md:overflow-visible overflow-auto hidden js-get-task-content">
+      <h1 class="font-bold text-2xl ml-3">Read All tasks</h1>
+      <div class="js-task-main-content">
+        
+      </div>
+    </div>
+
+    <div class="js-read-task-content hidden md:w-4/5 w-full h-90% md:ml-100 ">
+      <p class="font-bold text-2xl ml-3">Read task by Id</p>
+      <div class="flex flex-row items-center mt-4">
+        <input type="text" placeholder="Enter ID of note" class="js-id-input w-80 pl-3 ml-3 rounded-md border-2 border-gray-300 h-10">
+        <button type="button"
+          class="text-white js-read-button ml-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Read
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </button>
+      </div>
+      <div class="js-task-container">
+
+      </div>
+
+      <div id="toast-success1"
+        class="flex items-center  ml-3 hidden mt-5 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+          class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+          </svg>
+          <span class="sr-only">Check icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">Task loaded successfully.</div>
+      </div>
+
+      <div id="toast-danger1"
+        class="flex hidden items-center ml-3 mt-4 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+          class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+          </svg>
+          <span class="sr-only">Error icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">An error occured.</div>
+      </div>
+
+    </div>
+
+    <div class=" md:w-4/5 w-full h-90% md:ml-100 hidden js-task-content">
+      <p class="font-bold text-2xl mt-3 ml-3">Update task</p>
+
+      <div class="flex flex-col mt-4 ml-6 items-start">
+        <div class="flex flex-row items-center">
+          <p>ID: </p>
+          <input type="text" placeholder="Enter ID of note" class="w-72 pl-3 ml-20 rounded-md border-2 js-id-input1 border-gray-300 h-10">
+        </div>
+        <div class="flex flex-row items-center mt-3">
+          <p>Description: </p>
+          <input type="text" placeholder="Enter Description" class="w-72 pl-3 ml-2 rounded-md border-2 border-gray-300 h-10 js-desc-input">
+        </div>
+
+        <div class="flex flex-row items-center mt-3">
+          <p>Completed: </p>
+          <input class="size-4 ml-4" id="js-checkbox" type="checkbox"/>
+        </div>
+        
+        <button type="button"
+          class="text-white js-update-button mt-4 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Update
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </button>
+
+        <div id="toast-success3"
+          class="flex items-center mt-4  ml-3 hidden mt-5 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          role="alert">
+          <div
+            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+            </svg>
+            <span class="sr-only">Check icon</span>
+          </div>
+          <div class="ml-3 text-sm font-normal">Task Updated successfully.</div>
+        </div>
+        
+        <div id="toast-danger3"
+          class="flex hidden items-center ml-3 mt-4 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+          role="alert">
+          <div
+            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+            </svg>
+            <span class="sr-only">Error icon</span>
+          </div>
+          <div class="ml-3 text-sm font-normal">An error occured.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="md:w-4/5 w-full h-90% mt-3 md:ml-100 hidden js-delete-task-content flex flex-col">
+      <p class="font-bold text-2xl">Delete task By ID</p>
+
+      <div class="flex flex-row items-center mt-4">
+        <input type="text" placeholder="Enter ID of note" class="js-id-input2 w-80 pl-3 rounded-md border-2 border-gray-300 h-10">
+        <button type="button"
+          class="text-white js-delete-button ml-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Delete
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="toast-success2"
+        class="flex items-center mt-4  ml-3 hidden mt-5 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+          class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+          </svg>
+          <span class="sr-only">Check icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">Task deleted successfully.</div>
+      </div>
+
+      <div id="toast-danger2"
+        class="flex hidden items-center ml-3 mt-4 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+        role="alert">
+        <div
+          class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" />
+          </svg>
+          <span class="sr-only">Error icon</span>
+        </div>
+        <div class="ml-3 text-sm font-normal">An error occured.</div>
+      </div>
+
+    </div>
+
+    <div class="w-full md:h-full overflow-auto fixed top-0 right-0 md:bottom-0 md:left-20vw left-0  bottom-14 flex flex-col js-welocme-page">
+      <div class="flex flex-col items-center justify-center pb-4 w-full h-60" style="background-color: #2563EB;">
+        <p class="md:text-5xl text-4xl md:mt-0 mt-3 text-center md:-ml-64 font-extrabold text-white">Task Manager App</p>
+        <p class=" text-xl mt-4 text-white md:-ml-64">Organize your tasks, Simplify your Life </p>
+      </div>
+
+      <div class="flex flex-col items-center justify-center w-full py-8" style="background-color: #F9FAFB;">
+        <p class="font-bold text-3xl text-black md:-ml-64 mb-5">Key Features</p>
+        <div class="flex md:flex-row flex-col items-center md:-ml-64">
+          <div class="flex flex-col max-w-xs p-4 rounded-md shadow-md">
+            <p class="text-xl font-bold">Task Management</p>
+            <p>Create, organize, and manage your tasks effortlessly.</p>
+          </div>
+
+          <div class="flex flex-col max-w-xs p-4 rounded-md shadow-md md:ml-4 md:mt-0 mt-4">
+            <p class="text-xl font-bold">Easy Access</p>
+            <p>Easily access your tasks anywhere by just signing in</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center justify-center w-full py-8" style="background-color: #F3F4F6;">
+        <p class="font-bold text-3xl text-black md:-ml-64 mb-5">How it works</p>
+        <div class="flex md:flex-row flex-col items-center md:-ml-64">
+          <div class="flex flex-col max-w-xs p-4 rounded-md shadow-md">
+            <p class="text-xl font-bold">Step 1</p>
+            <p>Sign up and create your account</p>
+          </div>
+
+          <div class="flex flex-col max-w-xs md:p-4 p-5 rounded-md shadow-md md:ml-4 md:mt-0 mt-4">
+            <p class="text-xl font-bold">Step 2</p>
+            <p>Create and organize your task .</p>
+          </div>
+
+        </div>
+      </div> 
+
+      <footer class="bg-blue-600 text-white py-5 md:-ml-64">
+        <div class="container mx-auto text-center">
+          <p>&copy; 2024 Task Manager App. All rights reserved.</p>
+          <div class="flex justify-center space-x-4 mt-4">
+            <a href="#" class="hover:underline">Privacy Policy</a>
+            <a href="#" class="hover:underline">Terms of Service</a>
+            <a href="#" class="hover:underline">Contact Us</a>
+          </div>
+        </div>
+      </footer>
+
+      
+    </div>
+
+  </div>
+
+  <script src="scripts/home.js" type="module"></script>
+</body>
+
+</html>
