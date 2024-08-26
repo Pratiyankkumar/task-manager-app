@@ -15,7 +15,7 @@ router.post('/users', async (req, res) => {
     const result = await user.save()
     const token = await  user.generateAuthToken()
     res.status(201).send({result, token})
-    // sendWelcomeEmail(user.email, user.name)
+    sendWelcomeEmail(user.email, user.name)
   } catch (error) {
     res.status(500).send(error)
   }
@@ -97,7 +97,7 @@ router.delete('/users/me', auth, async (req, res) => {
   try {
     const user = await User.findByIdAndDelete({_id: req.user._id})
     res.send({user: user.getPublicProfile()})
-    // sendCancelationEmail(user.email, user.name)
+    sendCancelationEmail(user.email, user.name)
   } catch (error) {
     res.status(500).send({error: 'Unable to delete'})
   }
