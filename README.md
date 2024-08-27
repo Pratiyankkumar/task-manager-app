@@ -19,3 +19,5 @@ Welcome to the **Task Manager App**! This application allows users to manage the
 - **Testing:** Jest
 - **Version Control:** Git
 - **Deployment:** Render
+ ## Note 
+ Please wait for 1-2 minutes while visiting my Task Manager app because I dont have money to pay while deploying my site. I am using free tier of render.☺️
