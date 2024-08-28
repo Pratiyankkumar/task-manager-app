@@ -14,11 +14,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     data = await response.json();
 
+    document.querySelector('.js-user-name').innerHTML = data.name
+
+    if (data.avatar) {
+      document.querySelector('.js-image-container')
+      .innerHTML = `
+        <img class="rounded-full size-8 ml-4" src="data:img/png;base64, ${data.avatar}" alt="">
+      `
+    } else {
+      document.querySelector('.js-image-container')
+      .innerHTML = `
+        <div class=" bg-gray-700 text-white rounded-full flex justify-center items-center ml-4 px-2 ">
+          <span id="avatarPlaceholder" class="text-white rounded-full text-xl text-center">${data.name[0].toUpperCase()}</span>    
+        </div>
+      `
+    }
+
     console.log(data)
   } catch (error) {
     console.error('Error:', error);
   }
 });
+
+document.querySelector('.js-user-div').addEventListener('click', () => {
+  window.location.href = '/user'
+})
 
 document.querySelector('.js-logout-button').addEventListener('click', async () => {
   

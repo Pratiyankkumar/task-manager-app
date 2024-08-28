@@ -15,7 +15,7 @@ router.post('/users', async (req, res) => {
     const result = await user.save()
     const token = await  user.generateAuthToken()
     res.status(201).send({result, token})
-    sendWelcomeEmail(user.email, user.name)
+    // sendWelcomeEmail(user.email, user.name)
   } catch (error) {
     res.status(500).send(error)
   }
@@ -97,7 +97,7 @@ router.delete('/users/me', auth, async (req, res) => {
   try {
     const user = await User.findByIdAndDelete({_id: req.user._id})
     res.send({user: user.getPublicProfile()})
-    sendCancelationEmail(user.email, user.name)
+    // sendCancelationEmail(user.email, user.name)
   } catch (error) {
     res.status(500).send({error: 'Unable to delete'})
   }
@@ -121,7 +121,8 @@ router.post('/users/me/avatar', auth, upload.single('avatar'), async (req, res) 
   const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer()
   req.user.avatar = buffer
   await req.user.save()
-  res.send('File uploaded to server')
+  res.set('Content-Type', 'image/png');
+  res.send(req.user.avatar);
 }, (error, req, res, next) => { //Error handling
   res.status(400).send({error: error.message})
 })

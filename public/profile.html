@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="output.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center">
+
+    <!-- Dashboard Title -->
+    <h1 class="text-3xl font-bold text-gray-800">User Dashboard</h1>
+
+    <div class="max-w-md bg-white shadow-lg rounded-lg overflow-hidden mt-20">
+        <!-- Avatar Section -->
+        <div class="flex items-center justify-center bg-gray-200 p-8">
+            <div class="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center relative">
+                <!-- User Avatar Placeholder -->
+                 <div class="js-image-container rounded-full">
+                  
+                 </div>
+                <!-- Hidden File Input -->
+                <input type="file" id="avatarInput" class="hidden" accept="image/*">
+                <!-- Camera Icon -->
+                <div class="bg-white p-2 flex items-center justify-center rounded-full absolute bottom-2 right-0 cursor-pointer" id="uploadIcon">
+                  <svg class="w-6 h-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75L7.409 10.591a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 20.25h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                  </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Information Section -->
+        <div class="p-8">
+            <div class="mt-6">
+                <p class="text-gray-600">
+                  <span class="font-semibold">Name:</span> 
+                  <span class="js-name">Akshay</span>
+                </p>
+                <p class="text-gray-600 mt-4"><span class="font-semibold">Email:</span> <span class="js-email">Akshay</span></p>
+                <p class="text-gray-600 mt-4"><span class="font-semibold">Age:</span> <span class="js-age">Akshay</span></p>
+                <p class="text-gray-600 mt-4"><span class="font-semibold">Created At: </span><span class="js-created-at">Akshay</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-row items-center mt-6">
+      <button
+        class="select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-red-500/20 transition-all hover:shadow-lg hover:shadow-red-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="button" id="js-user-delete-button"
+      >
+        Delete Profile
+      </button>
+
+      <button
+        class="select-none rounded-lg bg-green-500 ml-3 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="button" id="js-user-update-button"
+      >
+        Update Profile
+      </button>
+    </div>
+
+    <script src="scripts/profile.js" type="module"></script>
+</body>
+</html>

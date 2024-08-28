@@ -28,4 +28,12 @@ app.get('/home', (req, res) => {
   res.sendFile('home.html', {root: publicDirectoryPath})
 })
 
+app.get('/user', (req, res) => {
+  res.sendFile('profile.html', {root: publicDirectoryPath})
+})
+
+app.get('/update', (req, res) => {
+  res.sendFile('update.html', {root: publicDirectoryPath})
+})
+
 module.exports = app
